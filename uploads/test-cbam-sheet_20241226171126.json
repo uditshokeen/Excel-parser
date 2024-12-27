@@ -1,0 +1,76 @@
+{
+    "Activity Data Tier 1 Supplier": [
+        {
+            "Finished/Semi-Finished Product No": "C001",
+            "Raw Material Reference No": "RM 001",
+            "Raw Material Name": "Alloy Steel",
+            "Production Process Name": "Process 1",
+            "Fuel / Energy Used (Direct Consumption)": "Electricity ",
+            "Quantity (Activity data)": 0.00390784,
+            "Unit": "MWh"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C002",
+            "Raw Material Reference No": "RM 001",
+            "Raw Material Name": "Alloy Steel",
+            "Production Process Name": "Process 1",
+            "Fuel / Energy Used (Direct Consumption)": "Electricity ",
+            "Quantity (Activity data)": 0.0160244,
+            "Unit": "MWh"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C002",
+            "Raw Material Reference No": "RM 001",
+            "Raw Material Name": "Alloy Steel",
+            "Production Process Name": "Process 2",
+            "Fuel / Energy Used (Direct Consumption)": "LPG",
+            "Quantity (Activity data)": 0.0613765324,
+            "Unit": "Kg"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C003",
+            "Raw Material Reference No": "RM 002",
+            "Raw Material Name": "Stainless Steel",
+            "Production Process Name": "Process 1",
+            "Fuel / Energy Used (Direct Consumption)": "Electricity ",
+            "Quantity (Activity data)": 0.00863928,
+            "Unit": "MWh"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C004",
+            "Raw Material Reference No": "RM 001",
+            "Raw Material Name": "Alloy Steel",
+            "Production Process Name": "Process 1",
+            "Fuel / Energy Used (Direct Consumption)": "Electricity ",
+            "Quantity (Activity data)": 0.0206926778,
+            "Unit": "MWh"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C005",
+            "Raw Material Reference No": "RM 001",
+            "Raw Material Name": "Alloy Steel",
+            "Production Process Name": "Process 1",
+            "Fuel / Energy Used (Direct Consumption)": "Electricity ",
+            "Quantity (Activity data)": 0.0515014445,
+            "Unit": "MWh"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C005",
+            "Raw Material Reference No": "RM 001",
+            "Raw Material Name": "Alloy Steel",
+            "Production Process Name": "Process 2",
+            "Fuel / Energy Used (Direct Consumption)": "LPG",
+            "Quantity (Activity data)": 0.1661327496,
+            "Unit": "Kg"
+        },
+        {
+            "Finished/Semi-Finished Product No": "C006",
+            "Raw Material Reference No": "RM 002",
+            "Raw Material Name": "Stainless Steel ",
+            "Production Process Name": "Process 1",
+            "Fuel / Energy Used (Direct Consumption)": "Electricity ",
+            "Quantity (Activity data)": 0.0242949802,
+            "Unit": "MWh"
+        }
+    ]
+}

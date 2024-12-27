@@ -1,17 +1,22 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 import pandas as pd
 import os
 import json
+from datetime import datetime
 
 app = Flask(__name__)
 
-# Create an upload folder for the files
+# Directories for uploads and JSON outputs
 UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+JSON_FOLDER = 'json_outputs'
 
-# Ensure the upload folder exists
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['JSON_FOLDER'] = JSON_FOLDER
+
+# Ensure the required folders exist
+for folder in [UPLOAD_FOLDER, JSON_FOLDER]:
+    if not os.path.exists(folder):
+        os.makedirs(folder)
 
 # Route to display the form and upload the file
 @app.route('/')
@@ -23,7 +28,7 @@ def upload_form():
         </form>
     '''
 
-# Route to handle the uploaded file and return the result in JSON format
+# Route to handle the uploaded file, save JSON, and return the result
 @app.route('/', methods=['POST'])
 def handle_file():
     if 'file' not in request.files:
@@ -51,14 +56,23 @@ def handle_file():
             # Convert each sheet's DataFrame to JSON
             result[sheet_name] = json.loads(df.to_json(orient='records'))
 
-        # Pretty-print the JSON data
-        formatted_json = json.dumps(result, indent=4)
+        # Save JSON to a local file with a timestamp
+        json_filename = f"{os.path.splitext(file.filename)[0]}_{datetime.now().strftime('%Y%m%d%H%M%S')}.json"
+        json_filepath = os.path.join(app.config['JSON_FOLDER'], json_filename)
 
-        # Return the formatted JSON response
-        return Response(formatted_json, mimetype='application/json')
+        with open(json_filepath, 'w', encoding='utf-8') as json_file:
+            json.dump(result, json_file, indent=4)
+
+        # Return a success message with JSON file details
+        return jsonify({
+            "message": "File processed and JSON saved successfully",
+            "json_file": json_filename,
+            "json_path": json_filepath,
+            "data_preview": result  # Returning a preview of JSON data
+        })
     
     except Exception as e:
-        return f"Error reading the file: {e}"
+        return f"Error processing the file: {e}"
 
 if __name__ == '__main__':
     app.run(debug=True)
